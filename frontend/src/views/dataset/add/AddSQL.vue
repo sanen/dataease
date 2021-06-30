@@ -30,7 +30,7 @@
           <el-form-item class="form-item">
             <el-input v-model="name" size="mini" :placeholder="$t('commons.name')" />
           </el-form-item>
-          <el-form-item class="form-item">
+          <el-form-item v-if="!param.tableId" class="form-item">
             <el-select v-model="mode" filterable :placeholder="$t('dataset.connect_mode')" size="mini">
               <el-option :label="$t('dataset.direct_connect')" value="0" />
               <el-option :label="$t('dataset.sync_data')" value="1" :disabled="!kettleRunning" />
@@ -220,7 +220,7 @@ export default {
         dataSourceId: this.dataSource,
         type: 'sql',
         // info: '{"sql":"' + this.sql + '"}',
-        info: JSON.stringify({ sql: this.sql })
+        info: JSON.stringify({ sql: this.sql.trim() })
       }).then(response => {
         this.fields = response.data.fields
         this.data = response.data.data
@@ -262,7 +262,7 @@ export default {
         type: 'sql',
         mode: parseInt(this.mode),
         // info: '{"sql":"' + this.sql + '"}',
-        info: JSON.stringify({ sql: this.sql })
+        info: JSON.stringify({ sql: this.sql.trim() })
       }
       post('/dataset/table/update', table).then(response => {
         // this.$store.dispatch('dataset/setSceneData', new Date().getTime())

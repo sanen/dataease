@@ -60,7 +60,8 @@ export default {
         fontSize: '18px',
         color: '#303133',
         textAlign: 'left',
-        fontStyle: 'normal'
+        fontStyle: 'normal',
+        fontWeight: 'normal'
       },
       bg_class: {
         background: hexColorToRGBA('#ffffff', 0)
@@ -68,17 +69,20 @@ export default {
       table_header_class: {
         fontSize: '12px',
         color: '#606266',
-        background: '#e8eaec'
+        background: '#e8eaec',
+        height: '36px'
       },
       table_item_class: {
         fontSize: '12px',
         color: '#606266',
-        background: '#ffffff'
+        background: '#ffffff',
+        height: '36px'
       },
       table_item_class_stripe: {
         fontSize: '12px',
         color: '#606266',
-        background: '#ffffff'
+        background: '#ffffff',
+        height: '36px'
       },
       title_show: true
     }
@@ -149,6 +153,8 @@ export default {
         if (customAttr.size) {
           this.table_header_class.fontSize = customAttr.size.tableTitleFontSize + 'px'
           this.table_item_class.fontSize = customAttr.size.tableItemFontSize + 'px'
+          this.table_header_class.height = customAttr.size.tableTitleHeight + 'px'
+          this.table_item_class.height = customAttr.size.tableItemHeight + 'px'
         }
         this.table_item_class_stripe = JSON.parse(JSON.stringify(this.table_item_class))
         // 暂不支持斑马纹
@@ -170,6 +176,7 @@ export default {
           this.title_class.color = customStyle.text.color
           this.title_class.textAlign = customStyle.text.hPosition
           this.title_class.fontStyle = customStyle.text.isItalic ? 'italic' : 'normal'
+          this.title_class.fontWeight = customStyle.text.isBolder ? 'bold' : 'normal'
         }
         if (customStyle.background) {
           this.bg_class.background = hexColorToRGBA(customStyle.background.color, customStyle.background.alpha)

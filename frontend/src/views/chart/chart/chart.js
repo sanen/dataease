@@ -27,6 +27,8 @@ export const DEFAULT_SIZE = {
   radarShape: 'polygon',
   tableTitleFontSize: 12,
   tableItemFontSize: 12,
+  tableTitleHeight: 36,
+  tableItemHeight: 36,
   gaugeMin: 0,
   gaugeMax: 100,
   gaugeStartAngle: 225,
@@ -61,7 +63,8 @@ export const DEFAULT_TITLE_STYLE = {
   color: '#303133',
   hPosition: 'center',
   vPosition: 'top',
-  isItalic: false
+  isItalic: false,
+  isBolder: false
 }
 export const DEFAULT_LEGEND_STYLE = {
   show: true,
@@ -79,8 +82,19 @@ export const DEFAULT_XAXIS_STYLE = {
   position: 'bottom',
   name: '',
   axisLabel: {
+    show: true,
+    color: '#333333',
+    fontSize: '12',
     rotate: 0,
     formatter: '{value}'
+  },
+  splitLine: {
+    show: false,
+    lineStyle: {
+      color: '#cccccc',
+      width: 1,
+      style: 'solid'
+    }
   }
 }
 export const DEFAULT_YAXIS_STYLE = {
@@ -88,8 +102,19 @@ export const DEFAULT_YAXIS_STYLE = {
   position: 'left',
   name: '',
   axisLabel: {
+    show: true,
+    color: '#333333',
+    fontSize: '12',
     rotate: 0,
     formatter: '{value}'
+  },
+  splitLine: {
+    show: true,
+    lineStyle: {
+      color: '#cccccc',
+      width: 1,
+      style: 'solid'
+    }
   }
 }
 export const DEFAULT_BACKGROUND_COLOR = {
